@@ -5,7 +5,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.evaluation import evaluate_policy
 from rl_environment import AluminumElectrolysisEnv
 
-def train_model(env, timesteps=50000):
+def train_model(env, timesteps=50):
     model = SAC("MlpPolicy", env, verbose=1)
     model.learn(total_timesteps=timesteps)
     model.save("sac_aluminum")
@@ -34,10 +34,10 @@ if __name__ == "__main__":
     train_model(env)
 
     # Load the trained model
-    model = load_model(env)
+    #model = load_model(env)
 
     # Evaluate the trained model
-    evaluate_model(env, model)
+    #evaluate_model(env, model)
 
     # Run the trained model
-    run_model(env, model)
+    #run_model(env, model)

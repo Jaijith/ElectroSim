@@ -33,5 +33,14 @@ def simulate(time, action, alumina_interval, alumina_amount):
         x_step = odeint(equations.system_odes, x0, [t[i], t[i+1]], args=(u, constants_values))
         x[i+1, :] = x_step[-1, :]
         x0 = x_step[-1, :]
+    print(x0)
 
     return t, x
+
+if __name__=="__main__":
+    ti = 1
+    act = [0.2, 0.3, 0.4,0.5,0.6]
+    al_int = 30
+    al_amt = 3
+    simulate(ti,act,al_int,al_amt)
+    
